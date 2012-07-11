@@ -1,0 +1,22 @@
+Desktop Assistant
+
+
+[ShoreTel]
+	Change ShoreTel Communicator status, timer to keep track of breaks.
+	Launches RT and Project Manager, can sign in if provided credentials.
+[Support]
+	[Directory]
+		Offers wide range of functions pertaining to making and managing calls.
+		Address Book, with Add/Remove. Edit not implemented.
+	[Phonetic Alphabet]
+		NATO Spelling Alphabet for use in spelling over the phone
+[NSS]
+	[SQLCMD]
+		Copy often-used SQLCMDs to clipboard
+	[Change User]
+		Change User Script, for altering NSS user on work machine
+[Kellogg]
+	[Proxy Settings]
+		Proxy Settings for both KUSA and KCAN
+[Log]
+	Logging utility for App
