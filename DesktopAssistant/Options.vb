@@ -11,7 +11,8 @@ Public Class Options
         DesktopAssistant.RTpass = tbRT.Text
         DesktopAssistant.PMpass = tbPM.Text
         DesktopAssistant.CloseToTray = cbTray.Checked
-        
+        DesktopAssistant.ClockHour = nudHour.Value
+        DesktopAssistant.ClockMin = nudMinute.Value
 
         SW = File.CreateText(DesktopAssistant.Settings)
 
@@ -19,10 +20,13 @@ Public Class Options
         SW.WriteLine(tbRT.Text) ' write RT Password
         SW.WriteLine(tbPM.Text) ' write PM Password
 
-        SW.WriteLine(DesktopAssistant.AwayTime)    ' write Away Time
-        SW.WriteLine(DesktopAssistant.LunchTime)   ' write Lunch Time
+        SW.WriteLine(DesktopAssistant.AwayTime)     ' write Away Time
+        SW.WriteLine(DesktopAssistant.LunchTime)    ' write Lunch Time
 
-        SW.WriteLine(DesktopAssistant.CloseToTray) ' write Close To Tray
+        SW.WriteLine(DesktopAssistant.ClockHour)    ' write Clock Hour
+        SW.WriteLine(DesktopAssistant.ClockMin)     ' write Clock Minute
+
+        SW.WriteLine(DesktopAssistant.CloseToTray)  ' write Close To Tray
 
         SW.Close()
 
@@ -37,6 +41,9 @@ Public Class Options
         tbUsername.Text = DesktopAssistant.Username
         tbPM.Text = DesktopAssistant.PMpass
         tbRT.Text = DesktopAssistant.RTpass
+
+        nudHour.Value = DesktopAssistant.ClockHour
+        nudMinute.Value = DesktopAssistant.ClockMin
     End Sub
 
     Private Sub btnCancel_Click(sender As System.Object, e As System.EventArgs) Handles btnCancel.Click

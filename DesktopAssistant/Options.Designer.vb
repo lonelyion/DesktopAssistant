@@ -37,8 +37,14 @@ Partial Class Options
         Me.tbRT = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.tbUsername = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.nudHour = New System.Windows.Forms.NumericUpDown()
+        Me.nudMinute = New System.Windows.Forms.NumericUpDown()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.nudHour, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nudMinute, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -88,7 +94,8 @@ Partial Class Options
         '
         'btnOK
         '
-        Me.btnOK.Location = New System.Drawing.Point(80, 137)
+        Me.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.btnOK.Location = New System.Drawing.Point(80, 164)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(75, 23)
         Me.btnOK.TabIndex = 19
@@ -97,8 +104,9 @@ Partial Class Options
         '
         'btnCancel
         '
+        Me.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancel.Location = New System.Drawing.Point(161, 136)
+        Me.btnCancel.Location = New System.Drawing.Point(161, 163)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 23)
         Me.btnCancel.TabIndex = 20
@@ -107,10 +115,11 @@ Partial Class Options
         '
         'cbTray
         '
+        Me.cbTray.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.cbTray.AutoSize = True
         Me.cbTray.Checked = True
         Me.cbTray.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.cbTray.Location = New System.Drawing.Point(12, 114)
+        Me.cbTray.Location = New System.Drawing.Point(12, 141)
         Me.cbTray.Name = "cbTray"
         Me.cbTray.Size = New System.Drawing.Size(146, 17)
         Me.cbTray.TabIndex = 8
@@ -145,6 +154,7 @@ Partial Class Options
         Me.tbPM.Name = "tbPM"
         Me.tbPM.Size = New System.Drawing.Size(106, 20)
         Me.tbPM.TabIndex = 3
+        Me.tbPM.UseSystemPasswordChar = True
         '
         'Label4
         '
@@ -161,6 +171,7 @@ Partial Class Options
         Me.tbRT.Name = "tbRT"
         Me.tbRT.Size = New System.Drawing.Size(106, 20)
         Me.tbRT.TabIndex = 2
+        Me.tbRT.UseSystemPasswordChar = True
         '
         'Label6
         '
@@ -178,14 +189,53 @@ Partial Class Options
         Me.tbUsername.Size = New System.Drawing.Size(225, 20)
         Me.tbUsername.TabIndex = 0
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(12, 117)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(91, 13)
+        Me.Label5.TabIndex = 8
+        Me.Label5.Text = "Clock-In Time:"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(161, 117)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(13, 13)
+        Me.Label7.TabIndex = 22
+        Me.Label7.Text = ":"
+        '
+        'nudHour
+        '
+        Me.nudHour.Location = New System.Drawing.Point(109, 115)
+        Me.nudHour.Maximum = New Decimal(New Integer() {23, 0, 0, 0})
+        Me.nudHour.Name = "nudHour"
+        Me.nudHour.Size = New System.Drawing.Size(46, 20)
+        Me.nudHour.TabIndex = 23
+        '
+        'nudMinute
+        '
+        Me.nudMinute.Increment = New Decimal(New Integer() {5, 0, 0, 0})
+        Me.nudMinute.Location = New System.Drawing.Point(179, 115)
+        Me.nudMinute.Maximum = New Decimal(New Integer() {55, 0, 0, 0})
+        Me.nudMinute.Name = "nudMinute"
+        Me.nudMinute.Size = New System.Drawing.Size(46, 20)
+        Me.nudMinute.TabIndex = 23
+        '
         'Options
         '
         Me.AcceptButton = Me.btnOK
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnCancel
-        Me.ClientSize = New System.Drawing.Size(316, 168)
+        Me.ClientSize = New System.Drawing.Size(316, 195)
         Me.ControlBox = False
+        Me.Controls.Add(Me.nudMinute)
+        Me.Controls.Add(Me.nudHour)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.cbTray)
         Me.Controls.Add(Me.btnCancel)
@@ -204,6 +254,8 @@ Partial Class Options
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.nudHour, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nudMinute, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -223,4 +275,8 @@ Partial Class Options
     Friend WithEvents tbRT As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents tbUsername As System.Windows.Forms.TextBox
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents nudHour As System.Windows.Forms.NumericUpDown
+    Friend WithEvents nudMinute As System.Windows.Forms.NumericUpDown
 End Class

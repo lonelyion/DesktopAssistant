@@ -38,6 +38,9 @@ Partial Class DesktopAssistant
         Me.LunchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OffToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.RTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.nIcon = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.Tab = New System.Windows.Forms.TabControl()
@@ -53,6 +56,7 @@ Partial Class DesktopAssistant
         Me.btnHang = New System.Windows.Forms.Button()
         Me.btnHold = New System.Windows.Forms.Button()
         Me.gbDir = New System.Windows.Forms.GroupBox()
+        Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnRemove = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.cbDirectory = New System.Windows.Forms.ComboBox()
@@ -71,11 +75,11 @@ Partial Class DesktopAssistant
         Me.btnCopy = New System.Windows.Forms.Button()
         Me.tUser = New System.Windows.Forms.TabPage()
         Me.txtConsole = New System.Windows.Forms.TextBox()
+        Me.txtPass = New System.Windows.Forms.TextBox()
+        Me.txtUser = New System.Windows.Forms.TextBox()
         Me.btnRun = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.txtPass = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtUser = New System.Windows.Forms.TextBox()
         Me.tKellogg = New System.Windows.Forms.TabPage()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.tProxy = New System.Windows.Forms.TabPage()
@@ -98,7 +102,6 @@ Partial Class DesktopAssistant
         Me.gbLog = New System.Windows.Forms.GroupBox()
         Me.tbLog = New System.Windows.Forms.TextBox()
         Me.tmrOff = New System.Windows.Forms.Timer(Me.components)
-        Me.btnEdit = New System.Windows.Forms.Button()
         Me.gbMode.SuspendLayout()
         Me.cmStrip.SuspendLayout()
         Me.Tab.SuspendLayout()
@@ -151,7 +154,7 @@ Partial Class DesktopAssistant
         Me.rbOff.AutoSize = True
         Me.rbOff.Location = New System.Drawing.Point(6, 85)
         Me.rbOff.Name = "rbOff"
-        Me.rbOff.Size = New System.Drawing.Size(43, 17)
+        Me.rbOff.Size = New System.Drawing.Size(39, 17)
         Me.rbOff.TabIndex = 0
         Me.rbOff.Text = "Off"
         Me.rbOff.UseVisualStyleBackColor = True
@@ -163,7 +166,7 @@ Partial Class DesktopAssistant
         Me.rbDefault.Checked = True
         Me.rbDefault.Location = New System.Drawing.Point(6, 16)
         Me.rbDefault.Name = "rbDefault"
-        Me.rbDefault.Size = New System.Drawing.Size(79, 17)
+        Me.rbDefault.Size = New System.Drawing.Size(73, 17)
         Me.rbDefault.TabIndex = 0
         Me.rbDefault.TabStop = True
         Me.rbDefault.Text = "Logged In"
@@ -175,7 +178,7 @@ Partial Class DesktopAssistant
         Me.rbAway.AutoSize = True
         Me.rbAway.Location = New System.Drawing.Point(6, 39)
         Me.rbAway.Name = "rbAway"
-        Me.rbAway.Size = New System.Drawing.Size(109, 17)
+        Me.rbAway.Size = New System.Drawing.Size(105, 17)
         Me.rbAway.TabIndex = 0
         Me.rbAway.Text = "Away From Desk"
         Me.rbAway.UseVisualStyleBackColor = True
@@ -205,43 +208,61 @@ Partial Class DesktopAssistant
         '
         'cmStrip
         '
-        Me.cmStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LogInToolStripMenuItem, Me.AwayToolStripMenuItem, Me.LunchToolStripMenuItem, Me.OffToolStripMenuItem, Me.ToolStripSeparator1, Me.ExitToolStripMenuItem})
+        Me.cmStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LogInToolStripMenuItem, Me.AwayToolStripMenuItem, Me.LunchToolStripMenuItem, Me.OffToolStripMenuItem, Me.ToolStripSeparator1, Me.RTToolStripMenuItem, Me.PMToolStripMenuItem, Me.ToolStripSeparator2, Me.ExitToolStripMenuItem})
         Me.cmStrip.Name = "cmStrip"
-        Me.cmStrip.Size = New System.Drawing.Size(108, 120)
+        Me.cmStrip.Size = New System.Drawing.Size(204, 170)
         '
         'LogInToolStripMenuItem
         '
         Me.LogInToolStripMenuItem.Name = "LogInToolStripMenuItem"
-        Me.LogInToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.LogInToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
         Me.LogInToolStripMenuItem.Text = "&Log In"
         '
         'AwayToolStripMenuItem
         '
         Me.AwayToolStripMenuItem.Name = "AwayToolStripMenuItem"
-        Me.AwayToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.AwayToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
         Me.AwayToolStripMenuItem.Text = "&Away"
         '
         'LunchToolStripMenuItem
         '
         Me.LunchToolStripMenuItem.Name = "LunchToolStripMenuItem"
-        Me.LunchToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.LunchToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
         Me.LunchToolStripMenuItem.Text = "&Lunch"
         '
         'OffToolStripMenuItem
         '
         Me.OffToolStripMenuItem.Name = "OffToolStripMenuItem"
-        Me.OffToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.OffToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
         Me.OffToolStripMenuItem.Text = "&Off"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(104, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(200, 6)
+        '
+        'RTToolStripMenuItem
+        '
+        Me.RTToolStripMenuItem.Name = "RTToolStripMenuItem"
+        Me.RTToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
+        Me.RTToolStripMenuItem.Text = "Launch RT"
+        '
+        'PMToolStripMenuItem
+        '
+        Me.PMToolStripMenuItem.Name = "PMToolStripMenuItem"
+        Me.PMToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
+        Me.PMToolStripMenuItem.Text = "Launch Project Manager"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(200, 6)
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.ExitToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.F4), System.Windows.Forms.Keys)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
         Me.ExitToolStripMenuItem.Text = "&Exit"
         '
         'nIcon
@@ -400,6 +421,15 @@ Partial Class DesktopAssistant
         Me.gbDir.TabIndex = 8
         Me.gbDir.TabStop = False
         Me.gbDir.Text = "Address Book"
+        '
+        'btnEdit
+        '
+        Me.btnEdit.Location = New System.Drawing.Point(166, 46)
+        Me.btnEdit.Name = "btnEdit"
+        Me.btnEdit.Size = New System.Drawing.Size(75, 23)
+        Me.btnEdit.TabIndex = 8
+        Me.btnEdit.Text = "Edit"
+        Me.btnEdit.UseVisualStyleBackColor = True
         '
         'btnRemove
         '
@@ -560,11 +590,11 @@ Partial Class DesktopAssistant
         'tUser
         '
         Me.tUser.Controls.Add(Me.txtConsole)
+        Me.tUser.Controls.Add(Me.txtPass)
+        Me.tUser.Controls.Add(Me.txtUser)
         Me.tUser.Controls.Add(Me.btnRun)
         Me.tUser.Controls.Add(Me.Label2)
-        Me.tUser.Controls.Add(Me.txtPass)
         Me.tUser.Controls.Add(Me.Label3)
-        Me.tUser.Controls.Add(Me.txtUser)
         Me.tUser.Location = New System.Drawing.Point(4, 22)
         Me.tUser.Name = "tUser"
         Me.tUser.Padding = New System.Windows.Forms.Padding(3)
@@ -584,6 +614,20 @@ Partial Class DesktopAssistant
         Me.txtConsole.Size = New System.Drawing.Size(242, 136)
         Me.txtConsole.TabIndex = 9012
         '
+        'txtPass
+        '
+        Me.txtPass.Location = New System.Drawing.Point(91, 32)
+        Me.txtPass.Name = "txtPass"
+        Me.txtPass.Size = New System.Drawing.Size(100, 20)
+        Me.txtPass.TabIndex = 9010
+        '
+        'txtUser
+        '
+        Me.txtUser.Location = New System.Drawing.Point(91, 6)
+        Me.txtUser.Name = "txtUser"
+        Me.txtUser.Size = New System.Drawing.Size(100, 20)
+        Me.txtUser.TabIndex = 9009
+        '
         'btnRun
         '
         Me.btnRun.Location = New System.Drawing.Point(197, 9)
@@ -602,13 +646,6 @@ Partial Class DesktopAssistant
         Me.Label2.TabIndex = 9008
         Me.Label2.Text = "Username:"
         '
-        'txtPass
-        '
-        Me.txtPass.Location = New System.Drawing.Point(91, 32)
-        Me.txtPass.Name = "txtPass"
-        Me.txtPass.Size = New System.Drawing.Size(100, 20)
-        Me.txtPass.TabIndex = 9010
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -617,13 +654,6 @@ Partial Class DesktopAssistant
         Me.Label3.Size = New System.Drawing.Size(61, 13)
         Me.Label3.TabIndex = 9007
         Me.Label3.Text = "Password:"
-        '
-        'txtUser
-        '
-        Me.txtUser.Location = New System.Drawing.Point(91, 6)
-        Me.txtUser.Name = "txtUser"
-        Me.txtUser.Size = New System.Drawing.Size(100, 20)
-        Me.txtUser.TabIndex = 9009
         '
         'tKellogg
         '
@@ -844,15 +874,6 @@ Partial Class DesktopAssistant
         '
         Me.tmrOff.Interval = 1000
         '
-        'btnEdit
-        '
-        Me.btnEdit.Location = New System.Drawing.Point(166, 46)
-        Me.btnEdit.Name = "btnEdit"
-        Me.btnEdit.Size = New System.Drawing.Size(75, 23)
-        Me.btnEdit.TabIndex = 8
-        Me.btnEdit.Text = "Edit"
-        Me.btnEdit.UseVisualStyleBackColor = True
-        '
         'DesktopAssistant
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -925,17 +946,6 @@ Partial Class DesktopAssistant
     Friend WithEvents tsProgress As System.Windows.Forms.ProgressBar
     Friend WithEvents btnOptions As System.Windows.Forms.Button
     Friend WithEvents tNSS As System.Windows.Forms.TabPage
-    Friend WithEvents NSSTab As System.Windows.Forms.TabControl
-    Friend WithEvents tClip As System.Windows.Forms.TabPage
-    Friend WithEvents tUser As System.Windows.Forms.TabPage
-    Friend WithEvents txtPaste As System.Windows.Forms.TextBox
-    Friend WithEvents btnCopy As System.Windows.Forms.Button
-    Friend WithEvents txtConsole As System.Windows.Forms.TextBox
-    Friend WithEvents btnRun As System.Windows.Forms.Button
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents txtPass As System.Windows.Forms.TextBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents txtUser As System.Windows.Forms.TextBox
     Friend WithEvents tbTime As System.Windows.Forms.TextBox
     Friend WithEvents tSupport As System.Windows.Forms.TabPage
     Friend WithEvents tbNATO As System.Windows.Forms.TextBox
@@ -973,7 +983,21 @@ Partial Class DesktopAssistant
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
-    Friend WithEvents cbNSSCopy As System.Windows.Forms.ComboBox
     Friend WithEvents btnEdit As System.Windows.Forms.Button
+    Friend WithEvents NSSTab As System.Windows.Forms.TabControl
+    Friend WithEvents tClip As System.Windows.Forms.TabPage
+    Friend WithEvents cbNSSCopy As System.Windows.Forms.ComboBox
+    Friend WithEvents txtPaste As System.Windows.Forms.TextBox
+    Friend WithEvents btnCopy As System.Windows.Forms.Button
+    Friend WithEvents tUser As System.Windows.Forms.TabPage
+    Friend WithEvents txtConsole As System.Windows.Forms.TextBox
+    Friend WithEvents txtPass As System.Windows.Forms.TextBox
+    Friend WithEvents txtUser As System.Windows.Forms.TextBox
+    Friend WithEvents btnRun As System.Windows.Forms.Button
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents RTToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents PMToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
 
 End Class

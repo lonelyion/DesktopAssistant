@@ -43,8 +43,11 @@ Public Class DesktopAssistant
     Dim auto As Boolean = False
 
     Public Username As String = "username"
-    Public RTpass As String = "******"
-    Public PMpass As String = "******"
+    Public RTpass As String = "password"
+    Public PMpass As String = "password"
+
+    Public ClockHour As Integer = 7
+    Public ClockMin As Integer = 30
 
     Public AddressBook As New Dictionary(Of String, String)
     Public EditName As String
@@ -115,6 +118,9 @@ Public Class DesktopAssistant
             ' Read Settings
             AwayTime = SR.ReadLine
             LunchTime = SR.ReadLine
+            ClockHour = SR.ReadLine
+            ClockMin = SR.ReadLine
+
             CloseToTray = Boolean.TryParse(SR.ReadLine, CloseToTray)
 
             SR.Close()
@@ -422,6 +428,15 @@ Public Class DesktopAssistant
         rbOff.Checked = True
     End Sub
 
+    Private Sub RTToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RTToolStripMenuItem.Click
+        btnRT.PerformClick()
+    End Sub
+
+    Private Sub PMToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles PMToolStripMenuItem.Click
+        btnPM.PerformClick()
+    End Sub
+
+
     Private Sub ExitToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ExitToolStripMenuItem.Click
         CloseToTray = False
         Me.Close()
@@ -482,10 +497,12 @@ Public Class DesktopAssistant
     End Sub
 
     Private Sub tmrOff_Tick(sender As System.Object, e As System.EventArgs) Handles tmrOff.Tick
-        If DateTime.Now.Hour = 13 Then
-            tbLog.Text &= DateAndTime.TimeString & " Logged In Automatically" & vbNewLine
-            auto = True
-            rbDefault.Checked = True
+        If DateTime.Now.Hour = ClockHour Then
+            If DateTime.Now.Minute = ClockMin Then
+                tbLog.Text &= DateAndTime.TimeString & " Logged In Automatically" & vbNewLine
+                auto = True
+                rbDefault.Checked = True
+            End If
         End If
     End Sub
 
@@ -574,12 +591,19 @@ Public Class DesktopAssistant
         SendKeys.Send(login)
     End Sub
 
+    ' launch NSS Sync Config
+    Private Sub btnNSSConfig_Click(sender As System.Object, e As System.EventArgs)
+        login = "{TAB}{TAB}{TAB}{TAB}{TAB}" & "admin" & "{TAB}" & "7936" & "{ENTER}"
+        System.Diagnostics.Process.Start("http://nss.rw3.com/soap/admin/AdminConfig.php")
+        Wait(1000)
+        SendKeys.Send(login)
+    End Sub
+
     ' open Options form
     Private Sub btnOptions_Click(sender As System.Object, e As System.EventArgs) Handles btnOptions.Click
         Options.ShowDialog()
     End Sub
 
 #End Region
-
 
 End Class
